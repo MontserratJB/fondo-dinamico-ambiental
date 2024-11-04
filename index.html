@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Sitio Web Ambiental</title>
+    <title>Fondo Dinámico con Árboles y Ranas</title>
     <style>
         body {
-            background: linear-gradient(135deg, #90BD1F, #4CAB4F, #006837, #03B8EC, #002A7B, #DF8869);
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: linear-gradient(135deg, #90BD1F, #4CAB4F, #006837);
             background-size: 200% 200%;
             animation: gradientAnimation 15s ease infinite;
         }
@@ -16,10 +19,40 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
+
+        .tree {
+            position: absolute;
+            width: 100px;
+            height: 150px;
+            background: url('https://example.com/tree.png') no-repeat center center;
+            background-size: contain;
+            animation: moveTree 20s linear infinite;
+        }
+
+        .frog {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: url('https://example.com/red-eyed-frog.png') no-repeat center center;
+            background-size: contain;
+            animation: moveFrog 10s linear infinite;
+        }
+
+        @keyframes moveTree {
+            0% { top: 100%; left: 10%; }
+            50% { top: 0%; left: 50%; }
+            100% { top: 100%; left: 90%; }
+        }
+
+        @keyframes moveFrog {
+            0% { top: 100%; left: 90%; }
+            50% { top: 50%; left: 50%; }
+            100% { top: 100%; left: 10%; }
+        }
     </style>
 </head>
 <body>
-    <h1>Bienvenido a Mi Sitio Web Ambiental</h1>
-    <p>Este es un ejemplo de cómo aplicar un fondo degradado dinámico.</p>
+    <div class="tree"></div>
+    <div class="frog"></div>
 </body>
 </html>
